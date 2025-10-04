@@ -1,11 +1,13 @@
-<p align="center" style="margin-top: 40px;">
-    <span style="font-size:2em; font-weight:bold;">Gurraoptimus</span>
+<p align="center">
+    <img src="logotype.png" alt="Gurraoptimus Logo" style="display:block; margin-top:20px; margin-left:auto; margin-right:auto;"/>
 </p>
 
-# Gurraoptimus Development
+<h1 align="center">Gurraoptimus Development</h1>
 
-Welcome to the Gurraoptimus project!  
-This document outlines the development workflow, contribution steps, and licensing information.
+<p align="center">
+    Welcome to the Gurraoptimus project! <br>
+    This document outlines the development workflow, contribution steps, and licensing information.
+</p>
 
 ## Getting Started
 
