@@ -1,0 +1,540 @@
+<!-- Key mobile fixes applied: 
+1. Improved responsive layout for header, nav, main, and project cards.
+2. Ensured YouTube embed and buttons scale well on small screens.
+3. Increased touch target sizes and reduced padding/margins for mobile.
+4. Fixed duplicate section id ("projects" and "Projects").
+-->
+<!DOCTYPE html>
+<html lang="en-SE">
+<head>
+  <meta charset="UTF-8" />
+  <meta property="og:url" content="https://www.gurraoptimus.se/">
+  <meta property="og:type" content="Web Development websites">
+  <meta property="og:title" content="Gurraoptimus Development">
+  <meta property="og:description" content="Building websites, apps &amp; tools with passion for tech and design.">
+  <meta property="og:image" content="https://www.gurraoptimus.se/img/github.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#6c2eb6" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="https://gurraoptimus.se/icon/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://gurraoptimus.se/icon/favicon.ico" type="image/x-icon" />
+  <title>Gurraoptimus Development</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #fff;
+      background: linear-gradient(135deg, #b0b0b0 0%, #444 100%);
+      animation: bgFadeIn 1.2s ease;
+    }
+    @keyframes bgFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 40px;
+      background: #191414;
+      border-bottom: 2px solid #b0b0b0;
+      box-shadow: 0 0 24px 8px, 0 0 16px 4px #6c2eb6;
+      z-index: 1000;
+      animation: slideDown 0.8s cubic-bezier(.77,0,.18,1);
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-60px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    header img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      box-shadow: 0 0 24px 8px #a259ff, 0 0 16px 4px #6c2eb6;
+      background: #222;
+      margin-right: 18px;
+      animation: fadeIn 1.2s 0.3s backwards, glowBlink 1.2s infinite alternate;
+    }
+    @keyframes glowBlink {
+      0% { box-shadow: 0 0 24px 8px #a259ff, 0 0 16px 4px #6c2eb6; }
+      100% { box-shadow: 0 0 8px 2px #a259ff, 0 0 4px 1px #6c2eb6; }
+    }
+    header h1 {
+      font-size: 2em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin: 0;
+      text-shadow: 0 2px 8px #191414;
+      color: #fff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      text-align: center;
+      animation: fadeIn 1.2s 0.5s backwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    nav {
+      display: flex;
+      gap: 16px;
+      animation: fadeIn 1.2s 0.7s backwards;
+    }
+    nav a {
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 24px;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(30,215,96,0.12);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      border: none;
+      outline: none;
+      background: #6c2eb6;
+      color: #fff;
+      font-size: 1em;
+    }
+    nav a:hover, nav a:focus {
+      filter: brightness(1.2);
+      box-shadow: 0 0 24px 8px #a259ff, 0 0 16px 4px #6c2eb6;
+      transform: scale(1.08);
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(25,20,20,0.85);
+      border-radius: 24px;
+      padding: 40px 32px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+      flex: 1;
+      animation: fadeIn 1.2s 1s backwards;
+    }
+    section {
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: sectionFadeIn 1s forwards;
+    }
+    section:nth-of-type(1) { animation-delay: 1.2s; }
+    section:nth-of-type(2) { animation-delay: 1.4s; }
+    section:nth-of-type(3) { animation-delay: 1.6s; }
+    @keyframes sectionFadeIn {
+      to { opacity: 1; transform: translateY(0);}
+    }
+    section h2 {
+      font-size: 2em;
+      margin-bottom: 18px;
+      font-weight: 600;
+      text-shadow: 0 2px 8px #191414;
+      color: #444;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    section p {
+      font-size: 1.15em;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .project-card {
+      border-radius: 16px;
+      padding: 24px;
+      border: 2px solid #444;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 2px 12px #a259ff, 0 0 16px 4px #6c2eb6;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background: #222;
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+      animation: cardFadeIn 0.8s forwards;
+    }
+    .project-card:nth-child(1) { animation-delay: 1.5s; }
+    .project-card:nth-child(2) { animation-delay: 1.7s; }
+    .project-card:nth-child(3) { animation-delay: 1.9s; }
+    @keyframes cardFadeIn {
+      to { opacity: 1; transform: scale(1) translateY(0);}
+    }
+    .project-card:hover {
+      filter: brightness(1.2);
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 0 24px 8px, 0 0 16px 4px,
+    }
+    .project-card h3 {
+      margin-top: 0;
+      font-size: 1.15em;
+      color: #444;
+    }
+    .project-card p {
+      font-size: 0.98em;
+      color: #ccc;
+    }
+    .visit-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 24px;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 2px 8px #a259ff, 0 0 12px 4px #6c2eb6;
+      border: none;
+      outline: none;
+      background: #6c2eb6;
+      color: #fff;
+      font-size: 1em;
+    }
+    .visit-btn:hover, .visit-btn:focus {
+      filter: brightness(1.2);
+      box-shadow: 0 4px 16px #a259ff, 0 0 12px 4px #6c2eb6;
+      animation: glowBlink 1.2s infinite alternate;
+      transform: scale(1.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(135deg, #6c2eb6 0%, #191414 100%);
+        color: #ff44cc;
+      }
+      header {
+        background: #191414;
+      }
+      main {
+        background: rgba(25,20,20,0.85);
+      }
+      .project-card {
+        border: 2px solid #6c2eb6;
+      }
+    }
+    @media (max-width: 700px) {
+      html, body {
+        font-size: 15px;
+      }
+      header {
+        flex-direction: column;
+        align-items: center;
+        padding: 14px 4vw;
+        gap: 10px;
+      }
+      header img {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 56px;
+        height: 56px;
+      }
+      nav {
+        margin-top: 8px;
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav a {
+        padding: 8px 12px;
+        font-size: 1em;
+      }
+      main {
+        padding: 16px 2vw;
+        margin: 16px auto;
+        border-radius: 12px;
+      }
+      section h2 {
+        font-size: 1.2em;
+      }
+      .project-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .project-card {
+        padding: 12px;
+        font-size: 0.98em;
+      }
+      .visit-btn {
+        padding: 8px 12px;
+        font-size: 1em;
+      }
+      #upBtn {
+        right: 12px;
+        bottom: 12px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.3em;
+      }
+      #youtube-live div {
+        padding-bottom: 60%;
+        min-height: 180px;
+      }
+      #youtube-live iframe {
+        min-height: 180px !important;
+      }
+      footer {
+        font-size: 0.95em;
+        padding: 8px;
+      }
+    }
+    .hidden {
+      display: none;
+    }
+    #toggleProjects {
+      padding: 10px 20px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 24px;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 2px 8px rgba(30,215,96,0.12);
+      border: none;
+      outline: none;
+      background: #6c2eb6;
+      color: #fff;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://gurraoptimus.se/img/{G}.png" alt="Gurraoptimus logotype" />
+    <h1>Gurraoptimus Development</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Hi! I'm Gurra Optimus – IT-Developer, musician, and the creative mind behind <strong>Gurraoptimus Development</strong>.
+        I build websites, apps, tools, and creative concepts with a passion for technology and design.
+        Here you'll find links to my projects, codes, and creative ventures.
+      </p>
+      <p>
+        I enjoy working with modern web development, automation, and community-driven projects. Hope you find something cool here!
+      </p>
+    </section>
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="project-list">
+        <div class="project-card">
+            <h3>YouTube</h3>
+            <p>Watch my latest live stream and explore my video content.</p>
+          <a href="#youtube-live" class="visit-btn">Watch Live</a>
+        </div>
+        <div class="project-card">
+            <h3>GitHub</h3>
+            <p>Showcasing my projects and contributions.</p>
+            <a href="https://github.com/gurraoptimus/" target="_blank" class="visit-btn" rel="noopener">Visit</a>
+          </div>
+    <div class="project-card">
+      <h3>Spotify</h3>
+      <p>Electronic music artist and composer. Listen to my latest tracks.</p>
+      <a href="https://bit.ly/DGRvX" target="_blank" class="visit-btn" rel="noopener">Visit</a>
+    </div>
+  </div>
+  </section>
+  <section id="latest-github">
+    <div class="project-card">
+      <h2>Latest GitHub Project</h2>
+      <p>Here is my most recently updated project on GitHub:</p>
+      <div id="repo-list" class="repo-grid"></div>
+    </div>
+  </section>
+  <section id="youtube-live">
+    <h2>YouTube Live</h2>
+    <p>Watch my latest YouTube Live stream below:</p>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;box-shadow:0 2px 12px #a259ff,0 0 16px 4px #6c2eb6;max-width:100%;">
+      <iframe
+        id="youtubeIframe"
+        src="https://www.youtube-nocookie.com/embed/VZtzGqULjss?enablejsapi=1&autoplay=1&loop=1&playlist=VZtzGqULjss"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;min-height:220px;">
+      </iframe>
+    </div>
+    <div id="yt-stats" style="margin-top:16px;font-size:1.1em;color:#a259ff;">
+      <span id="yt-subs">Subscribers: ...</span> &nbsp;|&nbsp;
+      <span id="yt-views">Views: ...</span>
+    </div>
+    <script>
+      // Auto play video when iframe is ready
+      window.addEventListener('message', function(event) {
+        // Only handle messages from YouTube iframe
+        if (event.origin.includes('youtube')) {
+          try {
+            const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+            if (data && data.event === 'onReady') {
+              // Play video when ready
+              document.getElementById('youtubeIframe').contentWindow.postMessage(JSON.stringify({
+                event: 'command',
+                func: 'playVideo',
+                args: []
+              }), '*');
+            }
+          } catch (e) {}
+        }
+      });
+
+      // Pause video when not visible
+      const iframe = document.getElementById('youtubeIframe');
+      let isPlaying = true;
+      function postMessageToIframe(command) {
+        iframe.contentWindow.postMessage(JSON.stringify({
+            event: 'command',
+          func: command,
+          args: [null]
+        }), '*');
+      }
+      window.addEventListener('scroll', () => {
+        const rect = iframe.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        if (isVisible && !isPlaying) {
+          postMessageToIframe('playVideo');
+          isPlaying = true;
+        } else if (!isVisible && isPlaying) {
+          postMessageToIframe('pauseVideo');
+          isPlaying = false;
+        }
+      });
+      // Show YouTube subs and views (placeholder, since scraping is unreliable)
+      document.getElementById('yt-subs').textContent = "Subscribers: N/A";
+      document.getElementById('yt-views').textContent = "Views: N/A";
+    </script>
+  </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Want to collaborate or say hi? Reach out via <a href="mailto:info@gurraoptimus.se" style="color:#a259ff;">info[at]gurraoptimus.se</a>
+      </p>
+    </section>
+  </main>
+  <button id="upBtn" title="Go to top" style="position:fixed;bottom:32px;right:32px;z-index:999;background:#6c2eb6;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 12px #a259ff,0 0 16px 4px #6c2eb6;cursor:pointer;font-size:1.8em;display:none;align-items:center;justify-content:center;transition:opacity 0.4s, transform 0.4s;">
+    ↑
+   </button>
+   <style>
+    #upBtn {
+      animation: upBtnFadeIn 0.6s;
+    }
+    @keyframes upBtnFadeIn {
+      from { opacity: 0; transform: scale(0.7);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    #upBtn:active {
+      animation: upBtnBounce 0.3s;
+    }
+    @keyframes upBtnBounce {
+      0% { transform: scale(1);}
+      50% { transform: scale(1.2);}
+      100% { transform: scale(1);}
+    }
+   </style>
+   <script>
+    const upBtn = document.getElementById('upBtn');
+    let visible = false;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+       if (!visible) {
+        upBtn.style.display = 'flex';
+        upBtn.style.opacity = '1';
+        upBtn.style.transform = 'scale(1)';
+        upBtn.style.animation = 'upBtnFadeIn 0.6s';
+        visible = true;
+       }
+      } else {
+       if (visible) {
+        upBtn.style.opacity = '0';
+        upBtn.style.transform = 'scale(0.8)';
+        setTimeout(() => { upBtn.style.display = 'none'; }, 400);
+        visible = false;
+       }
+      }
+    });
+    upBtn.addEventListener('click', () => {
+      window.scrollTo({top:0,behavior:'smooth'});
+      upBtn.style.animation = 'upBtnBounce 0.3s';
+      setTimeout(() => { upBtn.style.animation = ''; }, 300);
+    });
+   </script>
+  <script>
+   // Smooth scroll for internal links
+   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+       target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+  // Fetch latest GitHub repo
+  async function fetchLatestRepo() {
+    try {
+      const res = await fetch('https://api.github.com/users/gurraoptimus/repos?per_page=1&sort=updated&direction=desc');
+      const repos = await res.json();
+      const container = document.getElementById('repo-list');
+      container.innerHTML = "<p>Loading...</p>";
+      if (!Array.isArray(repos) || repos.length === 0) {
+        container.innerHTML = "<p>No repositories found.</p>";
+        return;
+      }
+      const repo = repos[0];
+      const updatedAt = new Date(repo.updated_at);
+      const updatedDate = updatedAt.toLocaleDateString();
+      const card = document.createElement('div');
+      card.className = 'repo-card';
+      card.innerHTML = `
+        <h3>${repo.name}</h3>
+        <p>${repo.description || 'No description available.'}</p>
+        <p><strong>⭐</strong> ${repo.stargazers_count} &nbsp;|&nbsp; <strong>🖥️</strong> ${repo.language || 'N/A'} &nbsp;|&nbsp; <strong>🔄</strong> Updated: ${updatedDate} &nbsp;|&nbsp; <strong>🕒</strong> Created: ${new Date(repo.created_at).toLocaleDateString()}</p>
+        <a href="${repo.html_url}" target="_blank" class="visit-btn" rel="noopener">View on GitHub</a>
+      `;
+      container.innerHTML = "";
+      container.appendChild(card);
+    } catch (err) {
+      console.error('Error loading GitHub project:', err);
+      document.getElementById('repo-list').innerHTML = "<p>Error loading project.</p>";
+    }
+  }
+  window.addEventListener("DOMContentLoaded", fetchLatestRepo);
+   </script>
+  <footer role="contentinfo" style="text-align: center; padding: 12px; background: #191414; color: #888; font-size: 0.9em; border-top: 2px solid #b0b0b0;">
+    &copy; <span id="year"></span> Gurraoptimus Development. All rights reserved.
+    <button id="translateEngBtn" style="margin-left:16px; background:none; border:none; cursor:pointer; font-size:1.3em; color:#a259ff;" title="English" aria-label="English">
+      <svg width="24" height="16" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+      <rect width="24" height="16" fill="#012169"/>
+      <path d="M0 0l24 16M24 0L0 16" stroke="#fff" stroke-width="2"/>
+      <path d="M0 0l24 16M24 0L0 16" stroke="#C8102E" stroke-width="1"/>
+      <rect x="9" width="6" height="16" fill="#fff"/>
+      <rect y="5" width="24" height="6" fill="#fff"/>
+      <rect x="10" width="4" height="16" fill="#C8102E"/>
+      <rect y="6" width="24" height="4" fill="#C8102E"/>
+      </svg>
+    </button>
+    <button id="translateSvBtnEmpty" style="margin-left:8px; background:none; border:none; cursor:pointer; font-size:1.3em; color:#a259ff;" title="Svenska" aria-label="Svenska"></button>
+    <button id="translateSvBtn" style="margin-left:8px; background:none; border:none; cursor:pointer; font-size:1.3em; color:#a259ff;" title="Svenska" aria-label="Svenska">
+      <svg width="24" height="16" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
+      <rect width="24" height="16" fill="#006aa7"/>
+      <rect x="6" width="3" height="16" fill="#fecc00"/>
+      <rect y="6" width="24" height="4" fill="#fecc00"/>
+      </svg>
+    </button>
+    <script>
+      // Set current year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+     </script>    
+  </footer>
+</body>
+</html>
