@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="logotype.png" alt="Gurraoptimus Logo" style="display:block; margin-top:20px; margin-left:auto; margin-right:auto;"/>
+    <img src="https://gurraoptimus.se/icon/favicon.ico" alt="Gurraoptimus Logo" width="120" style="display:block; margin-top:20px; margin-left:auto; margin-right:auto;"/>
 </p>
 
 <h1 align="center">Gurraoptimus Development</h1>
