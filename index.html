@@ -368,6 +368,23 @@
     <div id="yt-stats" style="margin-top:16px;font-size:1.1em;color:#a259ff;">
       <span id="yt-views">Views: ...</span>
     </div>
+    <!-- PlayStation Network Trophies card -->
+      <h3>PlayStation Network Trophies</h3>
+      <p>My latest PSN trophies and gaming achievements:
+      <div id="psn-trophies" style="margin-bottom:10px;">Loading trophies...</div>
+      <!-- <a href="https://psnprofiles.com/FRG1994" target="_blank" class="visit-btn" rel="noopener">Visit PSN Profile</a> -->
+    </div>
+    <script>
+      // Display PSN trophies using psnprofiles.com badge image (no public API)
+      const psnTrophiesDiv = document.getElementById('psn-trophies');
+      const badgeImg = document.createElement('img');
+      badgeImg.src = "https://card.psnprofiles.com/2/FRG1994.png";
+      badgeImg.alt = "PSN Trophies Badge";
+      badgeImg.style.maxWidth = "900px";
+      badgeImg.style.height = "auto";
+      badgeImg.onload = () => { psnTrophiesDiv.textContent = ""; psnTrophiesDiv.appendChild(badgeImg); };
+      badgeImg.onerror = () => { psnTrophiesDiv.textContent = "Unable to load trophies."; };
+    </script>
     <script>
       // Auto play video when iframe is ready
       window.addEventListener('message', function(event) {
