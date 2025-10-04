@@ -355,7 +355,7 @@
     <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;box-shadow:0 2px 12px #a259ff,0 0 16px 4px #6c2eb6;max-width:100%;">
       <iframe
         id="youtubeIframe"
-        src="https://www.youtube-nocookie.com/embed/VZtzGqULjss?enablejsapi=1&autoplay=1&loop=1&playlist=VZtzGqULjss"
+        src="https://www.youtube-nocookie.com/embed/VZtzGqULjss?enablejsapi=1&autoplay=1&loop=1&playlist=VZtzGqULjss&vq=hd2160"
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -366,7 +366,6 @@
       </iframe>
     </div>
     <div id="yt-stats" style="margin-top:16px;font-size:1.1em;color:#a259ff;">
-      <span id="yt-subs">Subscribers: ...</span> &nbsp;|&nbsp;
       <span id="yt-views">Views: ...</span>
     </div>
     <script>
@@ -409,9 +408,24 @@
           isPlaying = false;
         }
       });
-      // Show YouTube subs and views (placeholder, since scraping is unreliable)
-      document.getElementById('yt-subs').textContent = "Subscribers: N/A";
-      document.getElementById('yt-views').textContent = "Views: N/A";
+      // // Fetch YouTube video views using YouTube Data API v3 (requires API key)
+      // // Replace 'YOUR_API_KEY' with your actual API key
+      // const videoId = "VZtzGqULjss";
+      // fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoId}&key=YOUR_API_KEY`)
+      //   .then(res => res.json())
+      //   .then(data => {
+      //     if (data.items && data.items.length > 0) {
+      //   const stats = data.items[0].statistics;
+      //   document.getElementById('yt-views').textContent = `Views: ${stats.viewCount}`;
+      //     } else {
+      //   document.getElementById('yt-views').textContent = "Views: N/A";
+      //     }
+      //   })
+      //   .catch(() => {
+      //     document.getElementById('yt-views').textContent = "Views: N/A";
+      //   });
+      // Subscribers: Not available via public API for channels, so keep as N/A
+        // document.getElementById('yt-subscribers').textContent = `Subscribers: N/A`;
     </script>
   </section>
     <section id="contact">
