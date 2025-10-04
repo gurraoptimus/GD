@@ -554,7 +554,6 @@
       <rect y="6" width="24" height="4" fill="#C8102E"/>
       </svg>
     </button>
-    <button id="translateSvBtnEmpty" style="margin-left:8px; background:none; border:none; cursor:pointer; font-size:1.3em; color:#a259ff;" title="Svenska" aria-label="Svenska"></button>
     <button id="translateSvBtn" style="margin-left:8px; background:none; border:none; cursor:pointer; font-size:1.3em; color:#a259ff;" title="Svenska" aria-label="Svenska">
       <svg width="24" height="16" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
       <rect width="24" height="16" fill="#006aa7"/>
@@ -562,6 +561,62 @@
       <rect y="6" width="24" height="4" fill="#fecc00"/>
       </svg>
     </button>
+    <script>
+      // Translate buttons functionality
+      const engBtn = document.getElementById('translateEngBtn');
+      const svBtn = document.getElementById('translateSvBtn');
+      const translations = {
+        en: {
+          about: "About Me",
+          aboutText1: "Hi! I'm Gurra Optimus – IT-Developer, musician, and the creative mind behind <strong>Gurraoptimus Development</strong>. I build websites, apps, tools, and creative concepts with a passion for technology and design. Here you'll find links to my projects, codes, and creative ventures.",
+          aboutText2: "I enjoy working with modern web development, automation, and community-driven projects. Hope you find something cool here!",
+          projects: "Featured Projects",
+          githubLatest: "Latest GitHub Project",
+          githubLatestText: "Here is my most recently updated project on GitHub:",
+          youtubeLive: "YouTube Live",
+          youtubeLiveText: "Watch my latest YouTube Live stream below:",
+          psnTrophies: "PlayStation Network Trophies",
+          psnTrophiesText: "My latest PSN trophies and gaming achievements:",
+          contact: "Contact",
+          contactText: 'Want to collaborate or say hi? Reach out via <a href="mailto:info@gurraoptimus.se" style="color:#a259ff;">info[at]gurraoptimus.se</a>'
+        },
+        sv: {
+          about: "Om mig",
+          aboutText1: "Hej! Jag är Gurra Optimus – IT-utvecklare, musiker och den kreativa hjärnan bakom <strong>Gurraoptimus Development</strong>. Jag bygger webbplatser, appar, verktyg och kreativa koncept med passion för teknik och design. Här hittar du länkar till mina projekt, koder och kreativa äventyr.",
+          aboutText2: "Jag gillar att arbeta med modern webbutveckling, automation och community-drivna projekt. Hoppas du hittar något kul här!",
+          projects: "Utvalda projekt",
+          githubLatest: "Senaste GitHub-projektet",
+          githubLatestText: "Här är mitt senaste uppdaterade projekt på GitHub:",
+          youtubeLive: "YouTube Live",
+          youtubeLiveText: "Se min senaste YouTube Live-stream nedan:",
+          psnTrophies: "PlayStation Network Trophies",
+          psnTrophiesText: "Mina senaste PSN-troféer och spelprestationer:",
+          contact: "Kontakt",
+          contactText: 'Vill du samarbeta eller säga hej? Kontakta mig via <a href="mailto:info@gurraoptimus.se" style="color:#a259ff;">info[at]gurraoptimus.se</a>'
+        }
+      };
+      function translate(lang) {
+        document.documentElement.lang = lang === 'sv' ? 'sv-SE' : 'en-SE';
+        document.querySelector('#about h2').textContent = translations[lang].about;
+        document.querySelectorAll('#about p')[0].innerHTML = translations[lang].aboutText1;
+        document.querySelectorAll('#about p')[1].innerHTML = translations[lang].aboutText2;
+        document.querySelector('#projects h2').textContent = translations[lang].projects;
+        document.querySelector('#latest-github h2').textContent = translations[lang].githubLatest;
+        document.querySelector('#latest-github p').textContent = translations[lang].githubLatestText;
+        document.querySelector('#youtube-live h2').textContent = translations[lang].youtubeLive;
+        document.querySelectorAll('#youtube-live p')[0].textContent = translations[lang].youtubeLiveText;
+        document.querySelector('#youtube-live h3').textContent = translations[lang].psnTrophies;
+        document.querySelectorAll('#youtube-live p')[1].textContent = translations[lang].psnTrophiesText;
+        document.querySelector('#contact h2').textContent = translations[lang].contact;
+        document.querySelector('#contact p').innerHTML = translations[lang].contactText;
+      }
+      if (engBtn) {
+        engBtn.addEventListener('click', () => translate('en'));
+      }
+      if (svBtn) {
+        svBtn.addEventListener('click', () => translate('sv'));
+      }
+    </script>
     <script>
       // Set current year in footer
       document.getElementById('year').textContent = new Date().getFullYear();
