@@ -5,12 +5,12 @@
 <h1 align="center">Gurraoptimus Development</h1>
 
 <p align="center">
-    Welcome to the Gurraoptimus project! <br>
-    This document outlines the development workflow, contribution steps, and licensing information.
+    <a href="https://gurraoptimus.se">gurraoptimus.se</a>
 </p>
 
 <p align="center">
-    <strong>Website:</strong> <a href="https://gurraoptimus.se">https://gurraoptimus.se</a>
+    Welcome to the Gurraoptimus project! <br>
+    This document outlines the development workflow, contribution steps, and licensing information.
 </p>
 
 ## Getting Started
@@ -28,4 +28,4 @@
 
 ## License
 
-This project is distributed under the MIT License.
+This project is distributed under the MIT [License.](/License)
