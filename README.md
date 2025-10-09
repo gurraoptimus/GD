@@ -5,7 +5,7 @@
 <h1 align="center">Gurraoptimus Development</h1>
 
 <p align="center">
-    <a href="https://gurraoptimus.se" target="_blank">Gurraoptimus.se</a>
+    <a href="https://gurraoptimus.github.io/GD" target="_blank">Gurraoptimus Development</a>
 </p>
 
 <p align="center">
